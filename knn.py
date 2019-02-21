@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## KNN - K Nearest Neighbors
-#
 # **This is my first attempt to demonstrate my skill using Python to impliment K Nearest Neighbors.**
 #
 # I just grabbed the first random dataset from Kaggle that I thought I could use for classificiation.
 # There was no "class" column so I made one from the Chance of Admit percentage column.
-
+#
 # **Please see knn.txt for additional details.**
 
 
@@ -27,9 +25,6 @@ knn_df = pd.read_csv("Admission_Predict.csv", names=["id", "gre", "toefl", "u_ra
 knn_df.head()
 
 
-# In[147]:
-
-
 # Scale the data.  I used different scalers for criteria and classes
 # It just worked out to get me better results this time around.
 
@@ -45,12 +40,7 @@ s_scaler = StandardScaler()
 s_scaler.fit(knn_df.drop('pred',axis=1))
 scaled_features = s_scaler.transform(knn_df.drop('pred',axis=1))
 
-
 X_train, X_test, y_train, y_test = train_test_split(scaled_features,knn_df['pred'], test_size=0.33)
-
-
-# In[148]:
-
 
 error = []
 
@@ -72,9 +62,6 @@ plt.plot(range(1,40),error,color='blue', linestyle='dashed', marker='o',
 plt.title('Error Rate vs. Chosen K Value')
 plt.xlabel('Tested K Value')
 plt.ylabel('Error Rate')
-
-
-# In[153]:
 
 
 knn = KNeighborsClassifier(n_neighbors=30)
