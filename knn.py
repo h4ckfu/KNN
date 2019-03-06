@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# **This is my first attempt to demonstrate my skill using Python to impliment K Nearest Neighbors.**
+# **This is my attempt to demonstrate my skill using Python to impliment K Nearest Neighbors.**
 #
 # I just grabbed the first random dataset from Kaggle that I thought I could use for classificiation.
 # There was no "class" column so I made one from the Chance of Admit percentage column.
@@ -20,7 +20,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report,confusion_matrix
 
-# I just like to lowercase and remove spaces from my cols for spelli
+# I just like to lowercase and remove spaces from my cols to minimize errors
 knn_df = pd.read_csv("Admission_Predict.csv", names=["id", "gre", "toefl", "u_rating", "sop", "lor", "cgpa", "research", "pred"], header=0, index_col = 0)
 knn_df.head()
 
@@ -63,7 +63,7 @@ plt.title('Error Rate vs. Chosen K Value')
 plt.xlabel('Tested K Value')
 plt.ylabel('Error Rate')
 
-
+# The "elbow" was around 30 in the plot
 knn = KNeighborsClassifier(n_neighbors=30)
 
 knn.fit(X_train,y_train)
