@@ -1,2 +1,2 @@
-# ml
-I need to put these Machine Learning test, examples, hacks, etc. somewhere...
+# KNN
+This is where the files I've created using K Nearest Neighbors live.
